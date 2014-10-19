@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta http-equiv="Content-Type" charset="utf-8"> 
+    <title>关联菜单</title> 
+</head> 
+
+<body> 
+<form name="doublecombo"> 
+    <p> 
+        <select name="province" size="1" onChange="redirect(this.options.selectedIndex)"> 
+            <option>广东</option> 
+            <option>湖南</option> 
+            <option>广西</option> 
+        </select> 
+        <select name="city" size="1"> 
+            <option value="guangzhou">广州</option> 
+            <option value="shenzhen">深圳</option> 
+            <option value="zhuhai">珠海</option> 
+        </select> 
+        <input type="button" name="test" value="确认" onClick="go()"> 
+    </p> 
+
+<script> 
+    var groups=document.doublecombo.province.options.length 
+    var group=new Array(groups) 
+    for (I=0; I<groups; I++) 
+        group[I]=new Array() 
+        group[0][0]=new Option("广州","guangzhou") 
+        group[0][1]=new Option("深圳","shenzhen") 
+        group[0][2]=new Option("珠海","zhuhai") 
+        group[1][0]=new Option("长沙","changsha") 
+        group[1][1]=new Option("湘潭","xiangtan") 
+        group[1][2]=new Option("衡阳","hengyang") 
+        group[2][0]=new Option("南宁","nanning") 
+        group[2][1]=new Option("桂林","guilin") 
+        group[2][2]=new Option("阳朔","yangshuo") 
+        group[2][3]=new Option("雁山","yanshan") 
+
+    var temp=document.doublecombo.city 
+    function redirect(x){ 
+        for (m=temp.options.length-1;m>0;m--) 
+            temp.options[m]=null 
+        for (I=0;I<group[x].length;I++){ 
+            temp.options[I]=new Option(group[x][I].text,group[x][I].value) 
+        } 
+        temp.options[0].selected=true 
+    } 
+    function go(){ 
+      
+    } 
+
+</script> 
+</form> 
+</body> 
+</html></td>
+ </tr>
+</table>
